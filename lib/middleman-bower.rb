@@ -18,10 +18,8 @@ class Middleman::Bower < ::Middleman::Extension
         app.sprockets.append_path File.join app.root, assets_root, assets_path, 'bower_components'
       end
     else
-      config.before_initialize do |app|
-        ["lib", "vendor"].each do |dir|
-          app.sprockets.append_path File.join app.root, dir, 'bower_components'
-        end
+      %w(lib vendor).each do |dir|
+        app.sprockets.append_path File.join app.root, dir, 'bower_components'
       end
     end
   end
