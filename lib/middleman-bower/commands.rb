@@ -26,6 +26,7 @@ module Middleman
           raise ArgumentError, 'You can setup middleman-bower only using bower.json or Bowerfile. Please provide `json` or `bowerfile` as an argument instead'
         end
         empty_directory "vendor/assets"
+        append_to_file "config.rb", "\nactivate :bower\n"
       end
 
       desc "bower install [options]", "Install bower components"
